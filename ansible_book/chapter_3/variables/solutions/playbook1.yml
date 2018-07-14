@@ -1,0 +1,8 @@
+- hosts: node1.example.com
+  become: yes
+  vars:
+    new_hostname: node1-new.example.com
+  tasks:
+    - name: Set new hostname to the node1
+      hostname: name='{{ new_hostname }}'
+

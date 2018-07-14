@@ -1,0 +1,13 @@
+- hosts: node1.example.com
+  become: true
+  gather_facts: no
+  tasks:  
+  - name: Set a correct hostname
+    hostname: name='node1.example.com'
+
+  - name: Create the /tmp/test.txt file
+    become: no
+    copy:
+        content: |
+            This file is made by an Ansible playbook.
+        dest: /tmp/test.txt
